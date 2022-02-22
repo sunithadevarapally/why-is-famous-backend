@@ -2,7 +2,7 @@ import Question from './actions/question.js';
 import express from 'express';
 import bodyParser from 'body-parser';
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
