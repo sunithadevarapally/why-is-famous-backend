@@ -1,10 +1,26 @@
 import Question from './actions/question.js';
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+
+var whitelist = ['http://localhost:3000', 'https://famous-website-dot-famouswebsitereact.uc.r.appspot.com']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+// Then pass them to cors:
+app.use(cors(corsOptions));
 
 var jsonParser = bodyParser.json();
 
