@@ -1,3 +1,4 @@
 runtime: nodejs12
+service: famous-website-backend
 env_variables:
   PORT: 8080
